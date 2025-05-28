@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courtney Overlay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      font-family: 'Anton', sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+
+    #catchphrase {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #ff0033;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    #sextpanther-button {
+      position: absolute;
+      left: 20px;
+      bottom: 150px;
+      background: #ff0033;
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.5;
+      animation: flash 1s infinite;
+    }
+
+    #sextpanther-button a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .bottom-center {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .bottom-center img {
+      width: 300px;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      text-align: center;
+    }
+
+    .bottom-right img {
+      width: 100px;
+      height: 100px;
+      border-radius: 4px;
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .big-spender {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ff0033;
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      padding: 25px 35px;
+      border-radius: 6px;
+      animation: flash 1s infinite;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="catchphrase">HEY GOONER</div>
+
+  <div id="sextpanther-button">
+    <a href="https://sextpanther.com/CourtneyCorvette" target="_blank">
+      CUM TALK TO ME 1:1<br>
+      ON SEXT PANTHER 📹
+    </a>
+  </div>
+
+  <div class="bottom-center">
+    <img src="courtney_logo.png" alt="Courtney Logo">
+  </div>
+
+  <div class="bottom-right">
+    <img src="courtney_qr.png" alt="QR Code">
+  </div>
+
+  <script>
+    const phrases = [
+      "HEY GOONER",
+      "BIG DICKS ONLY",
+      "BE MOMMY'S GOOD BOY",
+      "PROFESSIONAL MILKER",
+      "TRY NOT TO BUST, I DARE YOU",
+      "HAVE YOU BEEN A BAD BOY?",
+      "HOW NAUGHTY CAN YOU GET ME TO BE?"
+    ];
+
+    let current = 0;
+    setInterval(() => {
+      document.getElementById("catchphrase").textContent = phrases[current];
+      current = (current + 1) % phrases.length;
+    }, 5000);
+
+    function onTipReceived(amount) {
+      if (amount >= 10000) {
+        const spender = document.createElement("div");
+        spender.className = "big-spender";
+        spender.textContent = "HEY BIG SPENDER 💸";
+        document.body.appendChild(spender);
+        setTimeout(() => spender.remove(), 5000);
+      }
+    }
+
+    // Simulated tips for testing (remove before live use)
+    /*
+    setInterval(() => {
+      const simulatedTip = Math.floor(Math.random() * 20000) + 1000;
+      onTipReceived(simulatedTip);
+    }, 15000);
+    */
+  </script>
+
+</body>
+</html>
